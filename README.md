@@ -11,3 +11,4 @@ git clone https://github.com/totaldesigner/any-shell
 ``` shell
 ...
 ```
+를
