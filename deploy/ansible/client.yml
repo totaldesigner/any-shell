@@ -1,0 +1,7 @@
+- name:
+  hosts: local
+  sudo: yes
+  vars_files:
+    - config.yml
+  roles:
+    - { role: python, tags: ['python'] }

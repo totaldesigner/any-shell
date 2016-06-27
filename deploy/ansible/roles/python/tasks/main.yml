@@ -1,0 +1,10 @@
+---
+- name: Install system packages
+  action: apt name={{ item }}
+  with_items:
+    - python3-pip
+
+- name: Install specified python
+  pip: name={{ item }}
+  with_items:
+    - sleekxmpp==1.3.1
