@@ -1,3 +1,10 @@
 {
-
+  "server": {
+    "jid": "",
+    "password": ""
+  },
+  "client": {
+    "jid": "",
+    "password": ""
+  }
 }

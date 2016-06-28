@@ -3,6 +3,7 @@
   action: apt name={{ item }}
   with_items:
     - python3-pip
+    - python3-dev
 
 - name: Install specified python
   pip: name={{ item }}

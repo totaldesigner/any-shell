@@ -9,7 +9,7 @@ define("xmpp", function () {
     var WS_PORT = 5280;
     var WS_URL = 'ws://' + WS_IP + ':' + WS_PORT + '/websocket';
 
-    function XMPP() {
+    function XMPPClient() {
         var self = this;
         require(['stanza.io'], function (StanzaIO) {
             self.StanzaIO = StanzaIO;
@@ -35,12 +35,12 @@ define("xmpp", function () {
                 });
             });
             client.on('chat', function (msg) {
-                var body, stdout, stderr;
+                var body, out, err;
                 body = JSON.parse(msg.body);
-                stdout = body.stdout;
-                stderr = body.stderr;
-                console.log('stdout: ' + stdout);
-                console.log('stderr: ' + stderr);
+                out = body.out;
+                err = body.err;
+                console.log('out: ' + out);
+                console.log('err: ' + err);
             });
             client.connect();
             self.client = client;
@@ -58,5 +58,5 @@ define("xmpp", function () {
         self.client.sendMessage(msg);
     };
 
-    return XMPP;
+    return XMPPClient;
 });

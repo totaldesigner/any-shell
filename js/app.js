@@ -9,7 +9,7 @@ requirejs.config({
     }
 });
 
-requirejs(['xmpp'], function(XMPP) {
-    var xmpp = new XMPP();
+requirejs(['xmpp'], function(XMPPClient) {
+    var client = new XMPPClient();
     debugger;
 });
