@@ -1,14 +1,19 @@
 /**
  * Created by mspark on 16. 6. 27.
  */
-define("xmpp", function () {
+define('xmpp', ['event', 'util'], function (event, util) {
     var JID = '';
     var PASSWORD = '';
     var RESOURCE = '';
     var WS_IP = '192.168.0.1';
     var WS_PORT = 5280;
     var WS_URL = 'ws://' + WS_IP + ':' + WS_PORT + '/websocket';
+    var EventTarget = event.EventTarget;
 
+    /**
+     * XMPPClient
+     * @constructor
+     */
     function XMPPClient() {
         var self = this;
         require(['stanza.io'], function (StanzaIO) {
@@ -32,6 +37,7 @@ define("xmpp", function () {
                             // NOT IMPLEMENTED
                         }
                     }
+                    self.fire('started');
                 });
             });
             client.on('chat', function (msg) {
@@ -46,6 +52,8 @@ define("xmpp", function () {
             self.client = client;
         });
     }
+
+    util.mixin(XMPPClient.prototype, EventTarget.prototype);
     XMPPClient.prototype.send = function (command) {
         var self = this;
         var msg = {

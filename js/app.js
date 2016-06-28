@@ -3,13 +3,16 @@
  */
 requirejs.config({
     baseUrl: 'js',
-    paths:{
+    paths: {
+        'event': 'event',
         'xmpp': 'xmpp',
         'stanza.io': 'lib/stanza.io'
     }
 });
 
-requirejs(['xmpp'], function(XMPPClient) {
+requirejs(['xmpp'], function (XMPPClient) {
     var client = new XMPPClient();
-    debugger;
+    client.on('started', function () {
+        debugger;
+    });
 });
