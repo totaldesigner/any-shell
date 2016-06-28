@@ -46,7 +46,7 @@ define("xmpp", function () {
             self.client = client;
         });
     }
-    XMPP.prototype.send = function (command) {
+    XMPPClient.prototype.send = function (command) {
         var self = this;
         var msg = {
             to: JID + 'x',
