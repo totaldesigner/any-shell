@@ -8,15 +8,14 @@ git clone https://github.com/totaldesigner/any-shell
 ```
 
 ## Usage
-### ejabberd server (messaging server)
+### Create and Run eJabberd (XMPP Server)
 ``` shell
 cd deploy/ansible
 ansible-playbook -i host server.yml
-
 ```
-### shell
+### RUn Shell
 ``` shell
 cd deploy/ansible
-ansible-playbook -i host server.yml
-
+ansible-playbook -i host shell.yml
+any-shell --jid "user@localhost/shell" --password "1234"
 ```

@@ -1,7 +1,7 @@
 define('xmpp', ['event', 'util'], function (event, util) {
-    var JID = '';
-    var PASSWORD = '';
-    var RESOURCE = '';
+    var JID = 'user@localhost';
+    var PASSWORD = '1234';
+    var RESOURCE = 'guest';
     var WS_IP = '192.168.0.1';
     var WS_PORT = 5280;
     var WS_URL = 'ws://' + WS_IP + ':' + WS_PORT + '/websocket';
@@ -54,7 +54,7 @@ define('xmpp', ['event', 'util'], function (event, util) {
     XMPPClient.prototype.send = function (command) {
         var self = this;
         var msg = {
-            to: JID + 'x',
+            to: JID + '/shell',
             body: JSON.stringify({
                 'command': command
             }),
