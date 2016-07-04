@@ -1,0 +1,17 @@
+---
+- name: Install system packages
+  action: apt name={{ item }}
+  with_items:
+    - python3-pip
+    - python3-dev
+
+- name: Install specified python
+  pip: name={{ item }}
+  with_items:
+    - docker-py>=1.7.0
+    - docker-compose>=1.7.0
+
+- name: Copy hats.conf.j2
+  template:
+    src=docker-compose.yml.j2
+    dest=/tmp/docker-compose.yml

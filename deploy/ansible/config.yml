@@ -1,0 +1,11 @@
+ejabberd: {
+    host: "localhost",
+    admin: {
+      jid: "admin@localhost",
+      password: "1234"
+    },
+    user: {
+      jid: "user@localhost",
+      password: "1234"
+    }
+}

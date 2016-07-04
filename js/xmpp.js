@@ -1,6 +1,3 @@
-/**
- * Created by mspark on 16. 6. 27.
- */
 define('xmpp', ['event', 'util'], function (event, util) {
     var JID = '';
     var PASSWORD = '';

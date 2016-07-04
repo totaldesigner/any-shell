@@ -1,7 +1,3 @@
-/**
- * Created by mspark on 6/28/16.
- */
-
 define("util", function () {
     function mixin(target, source) {
         function copyProperty(key) {

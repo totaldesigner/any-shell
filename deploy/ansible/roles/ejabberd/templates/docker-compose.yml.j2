@@ -1,0 +1,11 @@
+ejabberd:
+  image: rroemhild/ejabberd
+  ports:
+    - 5222:5222
+    - 5269:5269
+    - 5280:5280
+  environment:
+    - ERLANG_NODE=ejabberd
+    - XMPP_DOMAIN="{{ ejabberd.host }}"
+    - EJABBERD_ADMINS="{{ ejabberd.admin.jid }}"
+    - EJABBERD_USERS="{{ ejabberd.admin.jid }}":"{{ ejabberd.admin.password }}" "{{ ejabberd.user.jid }}":"{{ ejabberd.user.password }}"

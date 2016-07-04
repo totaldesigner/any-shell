@@ -5,7 +5,7 @@ import sleekxmpp
 from concurrent.futures import ThreadPoolExecutor
 
 
-class XMPPClient(sleekxmpp.ClientXMPP):
+class XMPPShell(sleekxmpp.ClientXMPP):
     def __init__(self, jid, password):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
         self.add_event_handler("session_start", self.session_start, threaded=True)
@@ -41,3 +41,22 @@ class XMPPClient(sleekxmpp.ClientXMPP):
             mto=msg['from'],
             mbody=msg['body'],
             mtype='chat')
+
+
+usage = """
+    xmpp.py [options]
+    example>
+        python xmpp.py --jid="user@localhost/shell" --password="1234"
+"""
+
+if __name__ == '__main__':
+    import optparse
+
+    parser = optparse.OptionParser(usage=usage)
+    parser.add_option("-j", "--jid", dest="id", help="jid - user@localhost/shell", default=None)
+    parser.add_option("-p", "--password", dest="password", help="password - 1234", default=None)
+
+    (options, args) = parser.parse_args()
+    shell = XMPPShell(options.jid, options.password)
+    shell.connect(use_tls=False)
+    shell.process()

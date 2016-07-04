@@ -8,6 +8,15 @@ git clone https://github.com/totaldesigner/any-shell
 ```
 
 ## Usage
+### ejabberd server (messaging server)
 ``` shell
-...
+cd deploy/ansible
+ansible-playbook -i host server.yml
+
+```
+### shell
+``` shell
+cd deploy/ansible
+ansible-playbook -i host server.yml
+
 ```
