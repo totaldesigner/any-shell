@@ -13,7 +13,7 @@ git clone https://github.com/totaldesigner/any-shell
 cd deploy/ansible
 ansible-playbook -i host server.yml
 ```
-### RUn Shell
+### Run Shell
 ``` shell
 cd deploy/ansible
 ansible-playbook -i host shell.yml
